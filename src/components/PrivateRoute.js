@@ -1,7 +1,8 @@
 import React from "react";
 import Login from "./Login"; 
+import { useHistory } from "react-router-dom";
 const PrivateRoute = (props)=>{
-    
+    let history = useHistory();
    
      if(window.localStorage.getItem("username") && window.localStorage.getItem("password")){
         return(
@@ -10,6 +11,7 @@ const PrivateRoute = (props)=>{
             </>
         )
      }else{
+        history.push("/login");
         return(
             <Login />
         )
